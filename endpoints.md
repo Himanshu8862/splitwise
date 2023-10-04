@@ -1,9 +1,9 @@
 ### Frontnend pages
 |Url                         | Description                                                                      |
 |----------------------------|----------------------------------------------------------------------------------|
-|/                           | homepage with list of friends, groups, create new friends, groups, add expense   |
-|/auth/login                 | login                                                                            |
-|/auth/register              | register                                                                         |
+|/                           | login                                                                            |
+|/register                   | register                                                                         |
+|/dashboard                  | homepage with list of friends, groups, create new friends, groups, add expense   |
 |/profile/                   | my info, transactions                                                            |
 |/friends/[id]               | list of transaction betwee two people                                            |
 |/friends/[id]/add-txn       | add transaction form                                                             |
@@ -18,7 +18,8 @@
 ### Backend routes
 |Endpoints                   | Description              |
 |----------------------------|--------------------------|
-|api/auth                    | login, register          |
+|api/register                | register                 |
+|api/auth/[...nextauth]      | login                    |
 |api/transaction             | POST txn, GET all        |
 |api/transaction/[id]        | Edit, Delete, Update     |
 |api/expense                 | POST expense, GET all    |

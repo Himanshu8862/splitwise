@@ -22,7 +22,7 @@ const UserSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Group'
     }],
-});
+}, { timestamps: true });
 
 const User = models.User || model("User", UserSchema);
 

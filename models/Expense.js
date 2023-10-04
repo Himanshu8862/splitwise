@@ -13,7 +13,7 @@ const ExpenseSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Group'
     }
-});
+}, { timestamps: true });
 
 const Expense = models.Expense || model("Expense", ExpenseSchema);
 

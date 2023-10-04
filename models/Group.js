@@ -9,7 +9,7 @@ const GroupSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     }],
-});
+}, { timestamps: true });
 
 const Group = models.Group || model("Group", GroupSchema);
 

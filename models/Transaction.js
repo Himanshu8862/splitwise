@@ -17,7 +17,7 @@ const TransactionSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     }
-});
+}, { timestamps: true });
 
 const Transaction = models.Transaction || model("Transaction", TransactionSchema);
 
