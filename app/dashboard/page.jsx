@@ -1,8 +1,6 @@
-import UserInfo from "@/components/UserInfo"
-
 const Dashboard = () => {
     return (
-        <UserInfo />
+        <div>Dashboard</div>
     )
 }
 

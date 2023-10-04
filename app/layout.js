@@ -1,6 +1,7 @@
 import AuthProvider from '@/components/Provider'
 import '../styles/globals.css'
 import { Inter } from 'next/font/google'
+import NavBar from '@/components/NavBar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,7 +15,11 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body className={inter.className}>
                 <AuthProvider>
-                    {children}
+
+                    <NavBar />
+                    <div style={{ margin: "75px 10px" }}>
+                        {children}
+                    </div>
                 </AuthProvider>
             </body>
         </html>

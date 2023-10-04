@@ -21,7 +21,6 @@ const RegisterForm = () => {
         }
 
         try {
-
             const res = await fetch("api/register", {
                 method: "POST",
                 headers: {
@@ -49,7 +48,7 @@ const RegisterForm = () => {
     }
 
     return (
-        <div className="grid place-items-center h-screen">
+        <div className="grid place-items-center">
             <div className="shadow-lg p-5 rounded-lg border border-t-4 border-green-400">
                 <h1 className="text-xl font-bold my-4">Register</h1>
 
