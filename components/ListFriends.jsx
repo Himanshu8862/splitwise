@@ -9,13 +9,11 @@ const ListFriends = () => {
 
     const { data: session } = useSession();
 
-    const fetchFriends =  async ()=> {
+    const fetchFriends = async () => {
         const userEmail = session?.user?.email;
-        if(session?.user?.email)
-        {
+        if (session?.user?.email) {
             try {
-                console.log(userEmail)
-                const res = await fetch("api/user/"+userEmail, {
+                const res = await fetch("api/user/" + userEmail, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json"
@@ -25,8 +23,8 @@ const ListFriends = () => {
                 const resData = await res.json();
 
                 if (res.ok) {
-                    console.log(resData.listFriends);
-                    console.log(resData.message)
+                    // console.log(resData.listFriends);
+                    // console.log(resData.message)
                     setHaveFriends(true);
                     setFriends(resData.listFriends)
                 } else {
@@ -39,22 +37,22 @@ const ListFriends = () => {
         }
     }
 
-    useEffect(  () => {
+    useEffect(() => {
         fetchFriends()
     }, [session?.user?.email])
 
-    return(
+    return (
         <div>
             <b>Your Friends</b>
-            {haveFriends ? friends.map(friend => {
+            {haveFriends ? friends.map((friend, idx) => {
                 return (
-                <div>
+                <div key={idx}>
                     <Link href={{pathname : `/createTransaction`, query: friend}}>
                         <h2>Email: {friend.email}, Name: {friend.name}</h2>
                     </Link>
                 </div>
                 );
-            }): <p>No Friends added</p>}
+            }) : <p>No Friends added</p>}
         </div>
     )
 }
