@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useSession } from 'next-auth/react'
+import Link from 'next/link'
 
 const ListFriends = () => {
     const [haveFriends, setHaveFriends] = useState(false);
@@ -48,8 +49,9 @@ const ListFriends = () => {
             {haveFriends ? friends.map(friend => {
                 return (
                 <div>
-                    <h2>{friend.email}</h2>
-                    <h2>{friend.name}</h2>
+                    <Link href={{pathname : `/createTransaction`, query: friend}}>
+                        <h2>Email: {friend.email}, Name: {friend.name}</h2>
+                    </Link>
                 </div>
                 );
             }): <p>No Friends added</p>}
