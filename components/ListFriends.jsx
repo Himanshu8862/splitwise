@@ -47,7 +47,7 @@ const ListFriends = () => {
             {haveFriends ? friends.map((friend, idx) => {
                 return (
                 <div key={idx}>
-                    <Link href={{pathname : `/createTransaction`, query: friend}}>
+                    <Link href={{pathname : `/friendTransaction`, query: friend}}>
                         <h2>Email: {friend.email}, Name: {friend.name}</h2>
                     </Link>
                 </div>

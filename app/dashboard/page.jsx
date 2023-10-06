@@ -1,6 +1,7 @@
 import AddFriend from "@/components/AddFriend"
 import ListFriends from "@/components/ListFriends"
 import ListGroups from "@/components/ListGroups"
+import ShowFriendChat from "@/components/ShowFriendChat"
 
 const Dashboard = () => {
     return (
@@ -12,7 +13,7 @@ const Dashboard = () => {
                 <ListGroups />
             </div>
             <div className="basis-2/3">
-
+                {/* <ShowFriendChat/> */}
             </div>
         </div>
         </>
