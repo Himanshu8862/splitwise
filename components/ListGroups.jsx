@@ -26,7 +26,8 @@ const ListGroups = () => {
 
                 if (res.ok) {
                     // console.log("in res.ok");
-                    setHaveGroups(true);
+                    if(resData.listGroups.length > 0)
+                        setHaveGroups(true);
                     setGroups(resData.listGroups)
                 } else {
                     console.log(resData.message)

@@ -1,10 +1,13 @@
 "use client";
 import { useState } from "react";
 import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation';
 
 const AddFriend = () => {
     const [email, setEmail] = useState("");
     const [error, setError] = useState("")
+
+    const router = useRouter();
 
     const { data: session } = useSession();
 
@@ -31,6 +34,7 @@ const AddFriend = () => {
 
             if (res.ok) {
                 alert(data.message)
+                router.push("/")
             } else {
                 setError(data.message);
             }

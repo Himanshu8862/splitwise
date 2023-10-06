@@ -25,7 +25,8 @@ const ListFriends = () => {
                 if (res.ok) {
                     // console.log(resData.listFriends);
                     // console.log(resData.message)
-                    setHaveFriends(true);
+                    if(resData.listFriends.length > 0)
+                        setHaveFriends(true);
                     setFriends(resData.listFriends)
                 } else {
                     console.log(resData.message)
