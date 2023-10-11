@@ -56,21 +56,26 @@ const ShowFriendChat = (props) => {
                 {haveTransactions ? transactions.map((transaction, idx) => {
                     return (
                         <>
-                            <div className="shadow-lg p-5 rounded-lg border border-t-4 border-green-400">
-                                <div key={idx}>
-                                    <div className="flex flex-row justify-between">
-                                        <p className="text-lg font-medium">Name: {transaction.name}</p>
-                                        <p className="text-lg font-medium">Amount: {transaction.amount}</p>
-                                        <p className="text-lg font-medium">Paid By: {transaction.receiverUser[0].name}</p>
-                                        {/* <p>Sender: {transaction.senderUser[0].name}</p>
-                                        <p>Receiver: {transaction.receiverUser[0].name}</p> */}
-                                    </div>
-                                    <div className="flex flex-row justify-end">
-                                        <p className="px-5 text-xs">Created: {transaction.createdAt}</p>
-                                        <p className="px-5 text-xs">Updated: {transaction.updatedAt}</p>
+                            <Link href={{pathname : `/showEditTxn`, query: {
+                                _id: transaction._id, name: transaction.name, amount: transaction.amount, sender: transaction.sender, receiver: transaction.receiver, 
+                                createdAt: transaction.createdAt, updatedAt: transaction.updatedAt, senderUser: transaction.senderUser[0].email, receiverUser: transaction.receiverUser[0].email
+                            }}}>
+                                <div className="shadow-lg p-5 rounded-lg border border-t-4 border-green-400">
+                                    <div key={idx}>
+                                        <div className="flex flex-row justify-between">
+                                            <p className="text-lg font-medium">Name: {transaction.name}</p>
+                                            <p className="text-lg font-medium">Amount: {transaction.amount}</p>
+                                            <p className="text-lg font-medium">Paid By: {transaction.receiverUser[0].name}</p>
+                                            {/* <p>Sender: {transaction.senderUser[0].name}</p>
+                                            <p>Receiver: {transaction.receiverUser[0].name}</p> */}
+                                        </div>
+                                        <div className="flex flex-row justify-end">
+                                            <p className="px-5 text-xs">Created: {transaction.createdAt}</p>
+                                            <p className="px-5 text-xs">Updated: {transaction.updatedAt}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         </>
                     );
                 }) : <p>No Transactions</p>}
